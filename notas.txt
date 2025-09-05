@@ -1,0 +1,26 @@
+-git clone origin -b "nombre del repositorio" (es para clonar un repositorio especificando la rama que quiero)
+-git init (inicializar git en el repositorio)
+-git config --global user.name "nombre de usuario" / git config --global user.email "correo electronico"
+-mkdir (para crear una carpeta)
+-cd (moverse a un directorio)
+-clear (limpiar consola)
+-git status (para ver el estado de los archivos en la carpeta)
+-git commit -m "mensaje" (para agregar un mensaje a los cambios hechos)
+-git push (subir cambios a github)
+-git remote add "nombre repositorio"  "url repositorio" (para agregar cosas desde la nube)
+-git push "nombre repositorio" (subir repositorio a github)
+-git branch (para ver las ramas)
+-git branch "nombre rama" (para crear una rama)
+-git checkout "nombr rama" (moverse entre ramas)
+-git branch -d "nombre rama" (para eliminar rama)
+-git push --setupstream-update "nombre rama" ()
+-git push --set-upstream origin "nombre rama" (para publicar rama por primera vez)
+-git fetch (actualiza el estado de la rama local con el estado de la rama en la nube)
+-git pull origin "nombre rama" (bajar los cambios)
+-git merge origin "nombre rama" ()
+
+
+
+
+
+
