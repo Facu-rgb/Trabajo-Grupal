@@ -210,7 +210,6 @@ function renderizarCarrito() {
     const pTotal = document.createElement("h4");
     pTotal.innerHTML = `<strong>Total:</strong> $${total.toLocaleString()}`;
 
-<<<<<<< HEAD
     const imprimir = document.createElement("button");
     imprimir.classList.add("btn", "btn-success", "ms-2");
     imprimir.textContent = "Imprimir";
@@ -224,9 +223,7 @@ function renderizarCarrito() {
         carritoDiv.style.margin = "0";
         window.print();
     });
-=======
 
->>>>>>> f406203d6df50a25f74bc8c4dfb34772abee40d9
 
     if (carrito.productos.length === 0) {
         imprimir.style.display = "none";
