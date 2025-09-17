@@ -19,7 +19,7 @@ class Carrito {
         const index = this.productos.findIndex((prod) => prod === producto);
         if (index !== -1) {
             this.productos.splice(index, 1);
-        }  
+        }
     }
 
     Subtotal() {
@@ -31,7 +31,7 @@ class Carrito {
     }
 
     IVA() {
-        let iva= (this.Subtotal() * 0.21);
+        let iva = (this.Subtotal() * 0.21);
         return iva;
     }
 
@@ -76,10 +76,11 @@ let carrito = new Carrito();
 
 
 
+const contenedor = document.querySelector(".container");
+const footer = document.querySelector(".footer")
 
 
 function mostrarTarjetas() {
-    const contenedor = document.querySelector(".container");
     contenedor.innerHTML = "";
 
     const row = document.createElement("div");
@@ -139,7 +140,7 @@ function mostrarTarjetas() {
 
 function renderizarCarrito() {
     const carritoDiv = document.getElementById("carrito");
-    carritoDiv.innerHTML= "";
+    carritoDiv.innerHTML = "";
 
     const container = document.createElement("div");
     container.classList.add("container");
@@ -162,10 +163,10 @@ function renderizarCarrito() {
         const img = document.createElement("img");
         img.src = producto.imagen;
         img.alt = producto.descripcion;
-        
+
         img.style.maxHeight = "100px";
         img.style.maxWidth = "100px";
-    
+
         colimg.appendChild(img);
 
         const coltext = document.createElement("div");
@@ -174,14 +175,17 @@ function renderizarCarrito() {
         h6.textContent = producto.descripcion;
         const p = document.createElement("p");
         p.textContent = `$${producto.precio.toLocaleString()}`;
-        const eliminar= document.createElement("button");
+        const eliminar = document.createElement("button");
         eliminar.classList.add("btn", "btn-danger");
         eliminar.textContent = "Eliminar";
         eliminar.addEventListener("click", () => {
             carrito.eliminarDelCarrito(producto);
             renderizarCarrito();
-        
+
         })
+
+
+
         coltext.append(h6, p, eliminar);
 
         row1.append(colimg, coltext);
@@ -192,7 +196,7 @@ function renderizarCarrito() {
 
     const col2 = document.createElement("div");
     col2.classList.add("col-5");
-   
+
 
 
     const subtotal = carrito.Subtotal();
@@ -206,9 +210,26 @@ function renderizarCarrito() {
     const pTotal = document.createElement("h4");
     pTotal.innerHTML = `<strong>Total:</strong> $${total.toLocaleString()}`;
 
-    
+    const imprimir = document.createElement("button");
+    imprimir.classList.add("btn", "btn-success", "ms-2");
+    imprimir.textContent = "Imprimir";
+    imprimir.addEventListener("click", () => {
+        contenedor.style.display = "none";
+        footer.style.display = "none";
+        carritoDiv.style.position = "absolute";
+        carritoDiv.style.top = "0";
+        carritoDiv.style.left = "0";
+        carritoDiv.style.width = "100%";
+        carritoDiv.style.margin = "0";
+        window.print();
+    });
 
-    col2.append(pSubtotal, pIVA, pTotal);
+    if (carrito.productos.length === 0) {
+        imprimir.style.display = "none";
+    }
+
+
+    col2.append(pSubtotal, pIVA, pTotal, imprimir);
 
     row.append(col1, col2);
     container.appendChild(row);
@@ -217,7 +238,6 @@ function renderizarCarrito() {
 
 
 
-/**/
 
 
 mostrarTarjetas();
