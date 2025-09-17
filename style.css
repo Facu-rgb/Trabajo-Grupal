@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.carrusel {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo dinámico con transición */
+.fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.fondo.activo {
+    opacity: 1;
+}
+
+/* Contenedor de tarjetas */
+.contenedor-tarjetas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    /* todas las tarjetas con la misma altura */
+}
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.tarjeta.mostrar {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: auto;
+    /* altura automática según proporción */
+    object-fit: contain;
+    /* no se corta la imagen */
+    display: block;
+    max-height: 150px;
+    /* opcional para que no crezca demasiado */
+    background-color: #f0f0f0;
+    /* fondo neutro si hay espacio vacío */
+}
+
+.tarjeta p {
+    padding: 8px;
+    font-weight: bold;
+}
+
+.precio {
+    padding: 5px;
+    color: #2ecc71;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.boton-comprar {
+    margin: 10px auto 15px auto;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-comprar:hover {
+    background-color: #219150;
+    transform: scale(1.05);
+}
+
+/* Botones de navegación */
+.boton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.boton.izquierda {
+    left: 20px;
+}
+
+.boton.derecha {
+    right: 20px;
+}
