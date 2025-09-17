@@ -236,6 +236,7 @@ function renderizarCarrito() {
     container.appendChild(row);
     carritoDiv.appendChild(container);
 }
+
 const diapositivas = [
     {
         fondo: "https://www.aparici.com/storage/vulcano-cocina-industrial-moderna-oscura.jpg",
