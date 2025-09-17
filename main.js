@@ -224,5 +224,6 @@ mostrarTarjetas();
 renderizarCarrito();
 
 function filtro(prod) {
-    
+    let filtro = productos.forEach(p=>p.descripcion.toLowerCase().includes(prod))
+    console.log(filtro)
 }
